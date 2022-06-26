@@ -5,17 +5,25 @@ Read the documentation for FluxCD and how to use it [using this URL](https://flu
 
 The repository follows the following structure, some manifests have been omitted for simplicity:
 ```
-├── .github
+├── .github                         # Workflows 
+├── alerts                          # Alerts set up for GitOps deployed resources status
+├── applications                    # Folder to manage Helm Releases
+│   ├── base                        # Folder to hold Helm Releases with default values
+│   │   ├── simple-backend-service  # Python microservice default values for release
+│   │   └── simple-frontend-service # ReactJS microservice default values for release
+│   └── dev                         # Folder with Kustomization to manage DEV values overrides
+├── automation                
 ├── clusters/my-cluster
-│   ├── flux-system             # Flux system CRDs
-│   └── infrastructure.yaml     # Kustomization that enables/disables all infrastructure tools
+│   ├── flux-system                 # Flux system CRDs
+│   ├── infrastructure.yaml         # Kustomization that enables/disables all infrastructure tools
+│   ├── apps.yaml                   # Kustomization that enables/disables all application releases
+│   └── alerts.yaml                 # Kustomization that enables/disables all Flux alerts
 ├── infrastructure
-│   ├── chart-museum-registry   # ChartMuseum Helm Registry
-│   ├── github-runners          # Github Runners
-│   ├── secrets                 # Directory for YAML manifest with encryption
-│   ├── sources                 # Sources for Helm Registries
-│   └── kustomization.yaml      # Kustomization to manage the infrastructure/ directory 
-├── applications                # Apps
+│   ├── chart-museum-registry       # ChartMuseum Helm Registry
+│   ├── github-runners              # Github Runners
+│   ├── secrets                     # Directory for YAML manifest with encryption
+│   ├── sources                     # Sources for Helm Registries
+│   └── kustomization.yaml          # Kustomization to manage the infrastructure/ directory 
 └── README.md
 ```
 
@@ -49,6 +57,7 @@ $ export GITHUB_TOKEN=<your-pat-token>
 # Verify you meet conditions
 $ flux check --pre
 
+# Can be bootstrapped to any other branch other than 'main'
 $ flux bootstrap github \
   --components-extra=image-reflector-controller,image-automation-controller \
   --owner=$GITHUB_USER \
@@ -69,7 +78,13 @@ $ gpg --export-secret-keys \
       --from-file=sops.asc=/dev/stdin
 ```
 
-### Examples
+## Upgrading the cluster
+```bash
+# Be sure to set all arguments needed, such as --extra-components if you have any extra controllers enabled, here is an upgrade to 0.29.5
+$ flux install --version="0.29.5" --components-extra=image-reflector-controller,image-automation-controller  --export > ./cluster/base/flux-system/gotk-components.yaml
+```
+
+### Useful examples
 ```bash
 # Example creating a git source
 $ flux create source git podinfo \

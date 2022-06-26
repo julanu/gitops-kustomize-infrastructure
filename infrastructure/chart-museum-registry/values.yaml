@@ -32,7 +32,7 @@ env:
     # disable all routes prefixed with /api
     DISABLE_API: false
     # allow chart versions to be re-uploaded
-    ALLOW_OVERWRITE: false
+    ALLOW_OVERWRITE: true
     # absolute url for .tgzs in index.yaml
     CHART_URL:
     # allow anonymous GET operations when auth is used
@@ -122,9 +122,6 @@ resources:
  limits:
    cpu: 25m
    memory: 28Mi
- requests:
-   cpu: 50m
-   memory: 56Mi
 
 probes:
   liveness:
@@ -192,7 +189,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "standard"
+  storageClass: "default"
   # volumeName:
   pv:
     enabled: true

@@ -7,15 +7,20 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: self-hosted-runners
+      chart: actions-runner
       sourceRef:
         kind: HelmRepository
-        name: chart-museum-registry
-        namespace: chart-museum
-      version: "0.1.0"
+        name: openshift-actions-runner
+        namespace: flux-system
+      version: "2"
   install:
     remediation:
       retries: 3
   values:
     namespace: flux-runners
-    replicas: 1
+    replicas: 3
+    githubRepository: ""
+    githubOwner: carrello-org
+    ephemeral: true
+    secretName: "github-pat"
+    runnerGroup: "rpi-microk8s"

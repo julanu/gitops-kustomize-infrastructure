@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chart-museum-registry
+  namespace: chart-museum
+spec:
+  releaseName: chart-museum-registry
+  chart:
+    spec:
+      chart: chartmuseum
+      sourceRef:
+        kind: HelmRepository
+        name: chart-museum-artifact
+        namespace: flux-system
+      version: "3.1.0"
+  interval: 1m0s
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: ConfigMap
+      name: chartmuseum-values

@@ -1,0 +1,14 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: release-alert
+  namespace: flux-system
+spec:
+  summary: "HelmRelease failed on re-deployment"
+  providerRef:
+    name: discord-provider
+  eventSeverity: info
+  eventSources:
+    - kind: HelmRelease
+      name: '*'
+      namespace: '*'

@@ -1,0 +1,3 @@
+## Override the deployment namespace
+##
+namespaceOverride: "monitoring"

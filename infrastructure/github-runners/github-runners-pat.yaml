@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: github-pat
+    namespace: flux-runners
+type: Opaque
+data:
+    github-pat: ENC[AES256_GCM,data:bQVkya5FMaBtz1UnzCwa9GY9DDoI+ccFhDDXT3kGVjq3j+OlXgn782h/cLkYcMWsJuPDP28w8UrF,iv:4IfXKqWvsloo9aQqz/dgzGNSgzvWm9FxuAggX13+J6U=,tag:CnCoIOiWiHdETPqWYGLg3Q==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-06-18T21:45:39Z"
+    mac: ENC[AES256_GCM,data:D9Rq+mcWRccEd9XzISp6gCwz/90JMLXwZ+yvYZU3dWfWzz8U2I/BZgszrn8G1KLTeyN3T/LEfPOuEaMtDRlnKVY0LA6a+dxp9YS4c6luG3U2K4z5N8ehaaObWIHYNKC8ur39jA5TEKLaDC9gZ9ck/o28FymFX6/jl8ba1Yyh2dY=,iv:DUK9pO7uRxFQwjw5Q+1fOm/wItQdVWrMKQ5Z60aNu0I=,tag:EXU22SIENfcpWOHEkbVgaQ==,type:str]
+    pgp:
+        - created_at: "2022-06-18T21:45:39Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMAxmLL2MdvkOfAQ//eSP1HJVh4Xt6V893bw9KFOcm2XFG0P+zHakGF7OVWQqQ
+            F33dA+Gl2BGAEZ597yBfDaItziYmcjWiY2suzLzWF0xStDj5jtHj62GKv4IPlH8y
+            b2hslTmbpwijrgHpVVhuAyklwaDfPVOiFbi2/M4/q45+qbKE/gdsjZflAuyAW0et
+            PRdFW2fl5DIY3eirrNzMzPJNlySKXZ9bgGukb+K0N5KxWa12+RMpNtVUVV+e5TAm
+            DMq//XJkDL7atxfT9WeQXVVQRBU2mtNdFaMD5++nX/GYsQELxJ+ny0AHdn2IPm6v
+            u/FyVFRIHkxbR4d36d0trQwX9d/u7v+8glfHg8j0Rx9nuQYa8LpTnBbC4M1Vopo4
+            J5M7Ff6wlJ76ScK80tbZzSEAdkFqUhq/ad6bkoPZIJadr+XqxsQTldfNx40CcKWx
+            Z+toYx4m+MiiJCI2B7rQlLx/DTnbNmtdYP3c+pYojfdHYDsSAlAK7gC2RRc9jGM4
+            dY792C2KHlVYwJf20dWGbyJBcdPfhLBCfp/7fGs+h9oBN/GHKbYYcbBu8ReFx6r6
+            Y9UNFI0AxSYhu1L99UrWisWtVojoEfLpcjOCeShTc92QhEDduw1zaG/NF+HzMuDQ
+            6DiqgZHEVRIPELUI3xnj2z5mhsIj8aLs81E5VLzd8Bs4DQ5Ilmnn19qtmC7oamzS
+            XgFmJR5z+oeYzD0m1CenO8DfFJBccej5PTbPmgpc8+DnIE5f35caF0FOlMfxt0BO
+            nfmccAffDEhWcyfxKFZlKN7nOiOprhHee8eI8RGmaO82MHfvSgeB+RCMjhb7VoA=
+            =4kyN
+            -----END PGP MESSAGE-----
+          fp: 5422FF44D67530D4FEFFF94D7324DA8A2FF7A7FE
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1

@@ -8,10 +8,10 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: infrastructure_work
+    branch: new_infra
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/julanu/gitops-infrastructure
+  url: ssh://git@github.com/julanu/gitops-kustomize-infrastructure
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization

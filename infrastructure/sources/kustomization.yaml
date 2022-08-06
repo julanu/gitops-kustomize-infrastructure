@@ -4,4 +4,4 @@ namespace: flux-system
 resources:
   - chart-museum.yaml
   - ingress-and-runners.yaml
-  - monitoring-and-helm-repo.yaml
+  - monitoring.yaml

@@ -4,6 +4,6 @@ namespace: flux-system
 resources:
   - kustomization-alert.yaml
   - release-alert.yaml
-  - discord-provider.yaml
   - discord-webhook.yaml
+  - discord-provider.yaml
 

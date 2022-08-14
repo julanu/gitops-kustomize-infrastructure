@@ -6,5 +6,8 @@ metadata:
 spec:
   type: discord
   channel: flux
-  secretRef:
-    name: discord-url
+  decryption:
+    # Use the SOPS provider
+    provider: sops
+    secretRef:
+      name: discord-url

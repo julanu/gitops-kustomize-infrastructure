@@ -94,7 +94,6 @@ spec:
                       - ImagePolicy
                       - ImageUpdateAutomation
                       - OCIRepository
-                      - OCIRepository
                       type: string
                     matchLabels:
                       additionalProperties:
@@ -629,11 +628,6 @@ spec:
                       type: string
                     description: Metadata holds upstream information such as OCI annotations.
                     type: object
-                  metadata:
-                    additionalProperties:
-                      type: string
-                    description: Metadata holds upstream information such as OCI annotations.
-                    type: object
                   path:
                     description: Path is the relative file path of the Artifact. It
                       can be used to locate the file in the root of the Artifact storage
@@ -929,7 +923,7 @@ spec:
                 type: string
               url:
                 description: The repository URL, can be a HTTP/S or SSH address.
-                pattern: ^(http|https|ssh)://.*$.*$
+                pattern: ^(http|https|ssh)://.*$
                 type: string
               verify:
                 description: Verify OpenPGP signature for the Git commit HEAD points
@@ -1273,7 +1267,7 @@ spec:
               url:
                 description: URL specifies the Git repository URL, it can be an HTTP/S
                   or SSH address.
-                pattern: ^(http|https|ssh)://.*$.*$
+                pattern: ^(http|https|ssh)://.*$
                 type: string
               verify:
                 description: Verification specifies the configuration to verify the
@@ -1319,11 +1313,6 @@ spec:
                       the last update of the Artifact.
                     format: date-time
                     type: string
-                  metadata:
-                    additionalProperties:
-                      type: string
-                    description: Metadata holds upstream information such as OCI annotations.
-                    type: object
                   metadata:
                     additionalProperties:
                       type: string
@@ -1432,15 +1421,6 @@ spec:
                   included repository has changed. It has the format of `<algo>:<checksum>`,
                   for example: `sha256:<checksum>`.'
                 type: string
-              contentConfigChecksum:
-                description: 'ContentConfigChecksum is a checksum of all the configurations
-                  related to the content of the source artifact:  - .spec.ignore  -
-                  .spec.recurseSubmodules  - .spec.included and the checksum of the
-                  included artifacts observed in .status.observedGeneration version
-                  of the object. This can be used to determine if the content of the
-                  included repository has changed. It has the format of `<algo>:<checksum>`,
-                  for example: `sha256:<checksum>`.'
-                type: string
               includedArtifacts:
                 description: IncludedArtifacts contains a list of the last successfully
                   included Artifacts as instructed by GitRepositorySpec.Include.
@@ -1456,12 +1436,6 @@ spec:
                         the last update of the Artifact.
                       format: date-time
                       type: string
-                    metadata:
-                      additionalProperties:
-                        type: string
-                      description: Metadata holds upstream information such as OCI
-                        annotations.
-                      type: object
                     metadata:
                       additionalProperties:
                         type: string
@@ -1963,11 +1937,6 @@ spec:
                       type: string
                     description: Metadata holds upstream information such as OCI annotations.
                     type: object
-                  metadata:
-                    additionalProperties:
-                      type: string
-                    description: Metadata holds upstream information such as OCI annotations.
-                    type: object
                   path:
                     description: Path is the relative file path of the Artifact. It
                       can be used to locate the file in the root of the Artifact storage
@@ -2355,10 +2324,6 @@ spec:
                       auth helpers will not function without adding binaries and credentials
                       to the Pod that is responsible for reconciling the HelmRelease.
                     properties:
-                      key:
-                        description: Key in the Secret, when not specified an implementation-specific
-                          default key is used.
-                        type: string
                       key:
                         description: Key in the Secret, when not specified an implementation-specific
                           default key is used.
@@ -3290,13 +3255,6 @@ spec:
                 - default
                 - oci
                 type: string
-              type:
-                description: Type of the HelmRepository. When this field is set to  "oci",
-                  the URL field value must be prefixed with "oci://".
-                enum:
-                - default
-                - oci
-                type: string
               url:
                 description: URL of the Helm repository, a valid URL contains at least
                   a protocol and host.
@@ -3322,11 +3280,6 @@ spec:
                       the last update of the Artifact.
                     format: date-time
                     type: string
-                  metadata:
-                    additionalProperties:
-                      type: string
-                    description: Metadata holds upstream information such as OCI annotations.
-                    type: object
                   metadata:
                     additionalProperties:
                       type: string
@@ -4488,12 +4441,6 @@ spec:
                 items:
                   type: string
                 type: array
-              exclusionList:
-                description: ExclusionList is a list of regex strings used to exclude
-                  certain tags from being stored in the database.
-                items:
-                  type: string
-                type: array
               image:
                 description: Image is the name of the image repository
                 type: string
@@ -4512,11 +4459,6 @@ spec:
                 required:
                 - name
                 type: object
-              serviceAccountName:
-                description: ServiceAccountName is the name of the Kubernetes ServiceAccount
-                  used to authenticate the image pull if the service account has attached
-                  pull secrets.
-                type: string
               serviceAccountName:
                 description: ServiceAccountName is the name of the Kubernetes ServiceAccount
                   used to authenticate the image pull if the service account has attached
@@ -6172,10 +6114,6 @@ spec:
                         description: Key in the Secret, when not specified an implementation-specific
                           default key is used.
                         type: string
-                      key:
-                        description: Key in the Secret, when not specified an implementation-specific
-                          default key is used.
-                        type: string
                       name:
                         description: Name of the Secret.
                         type: string
@@ -6407,7 +6345,6 @@ spec:
                   kind:
                     description: Kind of the referent.
                     enum:
-                    - OCIRepository
                     - OCIRepository
                     - GitRepository
                     - Bucket
@@ -6974,7 +6911,6 @@ spec:
                 - alertmanager
                 - grafana
                 - githubdispatch
-                - githubdispatch
                 type: string
               username:
                 description: Bot username for this provider
@@ -7150,7 +7086,6 @@ spec:
                       - ImageRepository
                       - ImagePolicy
                       - ImageUpdateAutomation
-                      - OCIRepository
                       - OCIRepository
                       type: string
                     matchLabels:
@@ -7410,8 +7345,6 @@ rules:
   - secrets
   - configmaps
   - serviceaccounts
-  - configmaps
-  - serviceaccounts
   verbs:
   - get
   - list
@@ -7435,14 +7368,6 @@ rules:
   - update
   - patch
   - delete
-- apiGroups:
-  - ""
-  resources:
-  - configmaps/status
-  verbs:
-  - get
-  - update
-  - patch
 - apiGroups:
   - ""
   resources:

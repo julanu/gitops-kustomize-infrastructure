@@ -7,6 +7,7 @@ spec:
   channel: flux
   secretRef:
     name: discord-url
+    namespace: flux-system
   type: discord
   username: flux-alerts
 

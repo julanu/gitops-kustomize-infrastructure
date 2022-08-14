@@ -6,4 +6,4 @@ resources:
   - release-alert.yaml
   - discord-webhook.yaml
   - discord-provider.yaml
-
+  - namespace.yaml

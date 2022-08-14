@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - sources
   - github-runners
-  # - prometheus-grafana
+  - prometheus-grafana
   - chart-museum-registry
   

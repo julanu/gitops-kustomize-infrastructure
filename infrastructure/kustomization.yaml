@@ -5,3 +5,4 @@ resources:
   # - github-runners
   - prometheus-grafana
   - chart-museum-registry
+  

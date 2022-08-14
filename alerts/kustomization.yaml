@@ -5,4 +5,5 @@ resources:
   - kustomization-alert.yaml
   - release-alert.yaml
   - discord-provider.yaml
+  - discord-url.yaml
 

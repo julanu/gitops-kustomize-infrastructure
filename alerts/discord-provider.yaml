@@ -6,5 +6,6 @@ metadata:
 spec:
   type: discord
   channel: flux
+  username: flux-alerts
   secretRef:
     name: discord-url

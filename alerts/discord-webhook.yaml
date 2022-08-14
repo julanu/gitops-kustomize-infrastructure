@@ -5,4 +5,35 @@ metadata:
     name: discord-url
     namespace: alerts
 data:
-    address: https://discord.com/api/webhooks/1008497858745483314/IaT3QcaEPgG0as5yQ2EtK_6RHJXNC9czZIwST5s8OdSDgyJzNaBqvAjuXmdPvWrMfrXg
+    address: ENC[AES256_GCM,data:f6+dfSWgExIxZvp4Lekp9sfWscd0Dn6suGLe/mLDILxXr6qDmLXUyx4nEXHX7NCGC3EwNPwbHRo0VRm+ddFfnU8CqBidrxjiNb1URKU7MKm1zdiCjpVC6WX1+uvbvBLtAvzUpZFWviXAkCgcC/tNWOtpRYz/+i1egw==,iv:4oKE0FW48niDtC1V1LGSFn2WfM47zK3J1MoIv0pxIoc=,tag:ocpFUl+a7D/0qApDvtmz3Q==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-08-14T22:15:01Z"
+    mac: ENC[AES256_GCM,data:yXeEArh66P/Bi4QhpXVxkwvn91YTbBSN9u71q1U4Y5O3i4PxmidbuAmNXqod41Gb3GO1LuYSsGPck7I9EuzqqSNkSOXDJ9LS5OwLHgCMxVgMqwgxJbtkG9QFBpT+oA0ZLTbRofhXlzcbFVI3p+6zYwnTI7jB/PMlAR169300iw4=,iv:hlYgjgR+xhnvJGd+12DiVKFiZ8XhpIaDixmRLpksS9s=,tag:xS/za5kNxqx31Xy8GXaSfw==,type:str]
+    pgp:
+        - created_at: "2022-08-14T22:15:00Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMAxmLL2MdvkOfARAArwtjWJZbfvSoh11nT7ty1y/p9Dr5vD8G/SM9vNgVYm60
+            GgybwRqX+20o52vvBC8W0UzdmC+l4RUVwDZ60U32dvtOu41ZSpqXip9u+8kh5V2e
+            +TUjrIEp8pc8NgrRIkIll5MKNVvFzOKWA/Lo7Zj2whi0IxTqpQMTjl5gciW3pobn
+            YVpeFJTfE4tboYvPWLZezzTkZo0mOHQ+yp8sxy2qmrocPWDIwZYKGe/p7Q9sTEFp
+            DoZ7r+m4jRhDmb3Zx0EItZtYsJDuxUGOf808jKZwCCgW+qfugj+fGf4k9DK3LftW
+            JttUQlTP6kgVRv2BFrYOI7MPnwngjN/kxInKqLYaG+mSwa1bYgj0QRlX4Dyb+uQ5
+            fOGGeqs5Pfh6tWhQGJauYFCyLweWUNPH7zCM6TMkialmweUmrO4F/88wyY1Wfi+I
+            tZFxeVRszHJddHqJRrYiJ1pCata4Hqz0t2GXyQedmGJs6wf00bq7OayD3uJCt53l
+            X2o2gfQXQ2SS8aCNujCt9aIxi83gzyeob9DruO4B6Jsr23jSVstSGuoKtcqWxfkV
+            Yswgb07/M/fcFH4DNrAg1rcdCMdPQuqpWst95o1XDOmbbtIj3qGPDFx43D+teuYr
+            O1XB255zuXiQ37bdYXWgr2ddpF1+syPy3jDK83DUQxJV6BKn/tWHOBAJ9sgXCujS
+            XgFsGkX+A+8gyy2//w5AprhhqAPSpjV+8rSzjr2vPk8ckdJQVXtARi8A0p49ihLV
+            Md5RHC9zsQiIRRaMD+75Gyj24FUb7W8sBLUkE5y3xHXJbmGWkCqsmujN7bhJh7s=
+            =oluF
+            -----END PGP MESSAGE-----
+          fp: 5422FF44D67530D4FEFFF94D7324DA8A2FF7A7FE
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1

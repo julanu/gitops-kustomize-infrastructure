@@ -5,5 +5,4 @@ resources:
   - kustomization-alert.yaml
   - release-alert.yaml
   - discord-provider.yaml
-  - infrastructure/secrets/discord-webhook.yaml
 

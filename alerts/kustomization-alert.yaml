@@ -12,3 +12,6 @@ spec:
     - kind: Kustomization
       name: '*'
       namespace: '*'
+    - kind: HelmRelease
+      name: '*'
+      namespace: '*'

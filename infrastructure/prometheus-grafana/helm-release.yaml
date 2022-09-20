@@ -10,7 +10,7 @@ spec:
       chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
-        name: prometheus-community-artifact
+        name: prometheus-community
         namespace: flux-system
       version: "35.0.0"
   interval: 1m0s

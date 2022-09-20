@@ -4,4 +4,4 @@ resources:
   - sources
   - github-runners
   - prometheus-grafana
-  - chart-museum-registry
+  # - chart-museum-registry

@@ -41,7 +41,6 @@ $ sops --decrypt manifest.yaml
 ```
 
 ## Bootstraping the cluster
-
 ```bash
 
 # The bootstrap command does following:

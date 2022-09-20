@@ -18,9 +18,9 @@ spec:
       retries: 3
   values:
     namespace: flux-runners
-    replicas: 3
-    githubRepository: ""
-    githubOwner: carrello-org
+    replicas: 1
+    githubRepository: "simple-python-service"
+    githubOwner: julanu
     ephemeral: true
     secretName: "github-pat"
-    runnerGroup: "rpi-microk8s"
+

@@ -2,7 +2,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
   name: kustomization-alert
-  namespace: flux-system
+  namespace: alerts
 spec:
   summary: "Kustomization failed for the desired new state"
   providerRef:

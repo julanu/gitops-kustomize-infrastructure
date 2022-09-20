@@ -2,7 +2,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
   name: release-alert
-  namespace: flux-system
+  namespace: alerts
 spec:
   summary: "HelmRelease failed on re-deployment"
   providerRef:

@@ -41,7 +41,6 @@ $ sops --decrypt manifest.yaml
 ```
 
 ## Bootstraping the cluster
-
 ```bash
 
 # The bootstrap command does following:
@@ -84,6 +83,16 @@ $ gpg --export-secret-keys \
 $ flux install --version="0.29.5" --components-extra=image-reflector-controller,image-automation-controller  --export > ./cluster/base/flux-system/gotk-components.yaml
 ```
 
+## Using Prometheus-Grafana
+Port-forward the service, navigate to `localhost:9999` and you should see the login page to loggin with `admin/prom-operator`
+```bash
+$ kubectl port-forward service/prometheus-grafana 9093:80 -n monitoring
+```
+### Flux dashboards
+- Control plane dashboard http://localhost:3000/d/flux-control-plane
+- Cluster reconciliation dashboard http://localhost:3000/d/flux-cluster
+- Control plane logs http://localhost:3000/d/flux-logs
+
 ### Useful examples
 ```bash
 # Example creating a git source
@@ -103,15 +112,6 @@ $ flux create kustomization podinfo \
   --prune=true \
   --interval=5m \
   --export > ./clusters/my-cluster/podinfo-kustomization.yaml
-```
-
-### Introducing reconciliation
-```bash
-# Reconciliation. This process takes changes defined by sources and ensures the cluster reaches the desired state. Flux won't apply the changes pulled in from the sources until there is an associated Kustomization resource telling it to reconcile to the source. 
-
-# Reconcile stuck HelmRelease / stuck flux-system Kustomization
-$ flux reconcile helmrelease nginx -n nginx
-$ flux reconcile kustomization flux-system -n flux-system
 ```
 
 ### Debugging

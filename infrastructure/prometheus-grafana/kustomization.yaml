@@ -4,6 +4,7 @@ namespace: monitoring
 resources:
   - namespace.yaml
   - helm-release.yaml
+  - monitoring-config/
 configMapGenerator:
   - name: chartmuseum-values
     files:

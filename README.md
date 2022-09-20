@@ -89,6 +89,10 @@ Port-forward the service, navigate to `localhost:9999` and you should see the lo
 ```bash
 $ kubectl port-forward service/prometheus-grafana 9093:80 -n monitoring
 ```
+### Flux dashboards
+- Control plane dashboard http://localhost:3000/d/flux-control-plane
+- Cluster reconciliation dashboard http://localhost:3000/d/flux-cluster
+- Control plane logs http://localhost:3000/d/flux-logs
 
 ### Useful examples
 ```bash
